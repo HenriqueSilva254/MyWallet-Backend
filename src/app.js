@@ -10,6 +10,7 @@ app.use(router)
 
 
 // Run Server
-const PORT = 5000
-app.listen(PORT, () => console.log('Server Run'))
-
+const port = process.env.PORT || 5000
+app.listen(port, () => {
+	console.log(`Servidor rodando na porta ${port}`)
+})
