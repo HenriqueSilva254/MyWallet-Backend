@@ -32,9 +32,9 @@ export async function signIn(req, res){
           await db.collection('session').insertOne({token, name: user.name, userId:user._id})
           const session = await db.collection('session').findOne({token})
           res.status(200).send({token: session.token, name: session.name})
-      }else res.status(404).send(err.message)
+      }else res.status(401).send(err.message)
   } catch (err) {
-      return res.status(404).send(err.message);
+      return res.status(401).send(err.message);
   }
 
 }
